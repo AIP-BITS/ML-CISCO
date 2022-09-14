@@ -12,7 +12,7 @@ def modified_iris_data():
     iris = iris[setosa_or_versicolor][["petal_length","petal_width","species"]].copy()
     y = iris.species.copy()
     X = iris.drop(["species"],axis=1)
-    return X.values,y
+    return X.values,np.where(y=="setosa",0,1)
 
 def generate_data(n_samples, dataset, noise):
     if dataset == 'iris':
